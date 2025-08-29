@@ -1,115 +1,420 @@
-/* Reset */
-* {
+/* ---------------------------
+   1. Konfigurasi Variabel & Reset CSS
+--------------------------- */
+:root {
+  --primary-color: #f59e0b;
+  --primary-color-dark: #d97706;
+  --dark-bg: #1f2937;
+  --light-bg: #f7f7f7;
+  --text-light: #fefefe;
+  --text-dark: #333;
+  --text-muted: #ddd;
+  --border-color: #ccc;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --font-family-main: "Verdana", sans-serif;
+  --navbar-height: 60px;
+  --container-width: 1200px;
+  --border-radius: 5px;
+  --transition-speed: 0.3s;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+  line-height: 1.5;
+  font-family: var(--font-family-main);
+  background-color: var(--light-bg);
+  color: var(--text-dark);
 }
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f4f4f4;
-  padding: 10px 20px;
-}
-
-header .logo {
-  font-size: 24px;
-}
-
-nav ul {
-  display: flex;
+ul,
+ol {
   list-style: none;
 }
-
-nav ul li {
-  margin-left: 20px;
-}
-
-nav ul li a {
+a {
   text-decoration: none;
-  color: #333;
+  color: inherit;
+}
+img {
+  max-width: 100%;
+  display: block;
 }
 
-.section {
-  padding: 40px 20px;
-  text-align: center;
+/* ---------------------------
+   2. Layout Utama (Container)
+--------------------------- */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.locations {
+/* ---------------------------
+   3. Navbar
+--------------------------- */
+nav {
+  height: var(--navbar-height);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--dark-bg);
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+nav .container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+.nav-menu ul {
+  display: flex;
   gap: 20px;
-  margin-top: 20px;
+}
+.nav-menu a {
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  color: var(--text-light);
+  display: block;
+  transition: all var(--transition-speed) ease;
+}
+.nav-menu a:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
 }
 
-.circle {
-  width: 120px;
-  height: 120px;
-  border: 2px solid #333;
-  border-radius: 50%;
+/* ---------------------------
+   4. Header
+--------------------------- */
+header {
+  height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("../img/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--text-light);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+header .container {
+  max-width: 1366px;
+  margin-left: 40px;
+}
+.header-judul h1 {
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  color: var(--text-light);
+}
+.header-judul p {
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--text-muted);
 }
 
-.form-container {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-  flex-wrap: wrap;
+/* ---------------------------
+   5. Konten Utama (main & section)
+--------------------------- */
+.headquarter {
+  background-color: #a8a5a5;
+  color: var(--text-light);
+  padding: 60px 0;
 }
-
-form {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.headquarter .container {
+  margin: 0;
+  margin-left: 40px;
+  padding: 0;
+  max-width: 1366px;
 }
-
-form input,
-form textarea,
-form button {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-form button {
-  background: #333;
-  color: white;
-  cursor: pointer;
-}
-
-.output {
-  width: 300px;
+.headquarter-judul {
   text-align: left;
-  background: #f9f9f9;
-  padding: 15px;
-  border-radius: 5px;
+}
+.headquarter-judul h1 {
+  color: var(--text-light);
+  font-size: 1.8em;
+  margin-bottom: 30px;
+}
+.headquarter-kota {
+  display: flex;
+  justify-content: flex-start;
+}
+.kota-item {
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--text-light);
+}
+.kota-item img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+  transition: transform var(--transition-speed) ease;
+}
+.kota-item img:hover {
+  transform: scale(1.05);
+}
+.kota-sejarah h3 {
+  margin-bottom: 8px;
+}
+.kota-sejarah p {
+  text-align: justify;
+  line-height: 1.6;
+}
+.section {
+  padding: 80px 0;
+}
+.section:nth-child(odd) {
+  background-color: #dad3d3;
+}
+.main-judul {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.main-judul h1 {
+  font-size: 1.8em;
+}
+#message .main-judul {
+  text-align: left;
+  margin-left: 0;
+}
+.profile-layout {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.main-foto {
+  flex-shrink: 0;
+  text-align: right;
+}
+.main-foto img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.main-about {
+  flex-grow: 1;
+}
+.main-about h1 {
+  font-size: 1.8em;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.main-about p {
+  text-align: justify;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.main-about p:last-child {
+  margin-bottom: 0;
+}
+.portfolio-slider {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.slide {
+  display: none;
+}
+.slide img {
+  width: 100%;
+  vertical-align: middle;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-footer {
-  background: #222;
-  color: #fff;
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slider-dots {
   text-align: center;
-  padding: 10px;
   margin-top: 20px;
 }
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active,
+.dot:hover {
+  background-color: var(--primary-color);
+}
+.main-pesan {
+  display: flex;
+  gap: 40px;
+}
+.main-form,
+.main-data {
+  flex: 1;
+}
+.main-form table {
+  width: 100%;
+}
+.main-form td,
+.main-data td {
+  padding: 8px 5px;
+}
+.main-form label {
+  font-weight: bold;
+}
+.main-form input[type="text"],
+.main-form input[type="date"],
+.main-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-family: inherit;
+}
+.main-form input[type="radio"] {
+  margin-left: 10px;
+}
+.main-form input[type="submit"] {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 12px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color var(--transition-speed) ease;
+}
+.main-form input[type="submit"]:hover {
+  background-color: var(--primary-color-dark);
+}
+.main-data td:first-child {
+  font-weight: bold;
+}
+.main-data {
+  background-color: #efecec;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #b1afaf;
+  flex: 1;
+}
 
-/* Responsive */
+/* ---------------------------
+   6. Footer
+--------------------------- */
+footer {
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  padding: 20px 0;
+  font-size: 0.9em;
+}
+footer .container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.footer-copyright {
+  text-align: right;
+}
+
+/* ---------------------------
+   7. Responsive
+--------------------------- */
+@media (max-width: 992px) {
+}
 @media (max-width: 768px) {
-  .locations {
+  .profile-layout,
+  .main-pesan {
     flex-direction: column;
     align-items: center;
   }
-  .form-container {
+  .main-foto,
+  .main-about,
+  .main-form,
+  .main-data {
+    flex-basis: 100%;
+    width: 100%;
+    text-align: center;
+  }
+  .main-about h1,
+  .main-about p {
+    text-align: center;
+  }
+  .kota-item {
     flex-direction: column;
-    align-items: center;
+    text-align: center;
+  }
+  footer .container {
+    justify-content: center;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  header .container,
+  main.headquarter .container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .header-judul h1 {
+    font-size: 32px;
+  }
+  .header-judul p {
+    font-size: 18px;
   }
 }

@@ -2,81 +2,220 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Website</title>
+    <title>Portofolio Alfian</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!-- Navbar -->
-    <header>
-      <div class="logo">😊</div>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#profile">Our Profile</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#message">Message Us</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- Home -->
-    <section id="home" class="section">
-      <h1>Hi <span id="username">Guest</span>, Welcome To Website</h1>
-      <p>Ini adalah website pertama saya</p>
-      <img src="https://via.placeholder.com/600x270" alt="Banner" />
-    </section>
-
-    <!-- Our Headquarter -->
-    <section id="profile" class="section">
-      <h2>Our Headquarter</h2>
-      <div class="locations">
-        <div class="circle">Jakarta</div>
-        <div class="circle">Bandung</div>
-        <div class="circle">Sumatera</div>
+    <nav>
+      <div class="container">
+        <div class="nav-menu">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#portfolio">Portofolio</a></li>
+            <li><a href="#message">Message Us</a></li>
+          </ul>
+        </div>
       </div>
-    </section>
+    </nav>
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="section">
-      <h2>Portfolio</h2>
-      <p>Isi dengan project atau karya Anda di sini.</p>
-    </section>
+    <header id="home">
+      <div class="container">
+        <div class="header-judul">
+          <h1>
+            Halo <span id="username"></span>,<br />
+            Welcome To My Website
+          </h1>
+          <p>
+            Senang bertemu lagi! Yuk, jelajahi berbagai proyek dan pengalaman
+            saya,<br />
+            temukan hal-hal menarik, dan jangan ragu untuk mengeksplor lebih
+            jauh.
+          </p>
+        </div>
+      </div>
+    </header>
+    <br />
 
-    <!-- Message Us -->
-    <section id="message" class="section">
-      <h2>Message Us</h2>
-      <div class="form-container">
-        <form id="messageForm">
-          <label for="name">Nama:</label>
-          <input type="text" id="name" required />
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" required />
-
-          <label for="phone">Nomor Telepon:</label>
-          <input type="tel" id="phone" required />
-
-          <label for="messageText">Pesan:</label>
-          <textarea id="messageText" required></textarea>
-
-          <button type="submit">Submit</button>
-        </form>
-
-        <!-- Output -->
-        <div class="output">
-          <h3>Message Output</h3>
-          <p><strong>Nama:</strong> <span id="outName"></span></p>
-          <p><strong>Email:</strong> <span id="outEmail"></span></p>
-          <p><strong>Telepon:</strong> <span id="outPhone"></span></p>
-          <p><strong>Pesan:</strong> <span id="outMsg"></span></p>
+    <section id="profile" class="section">
+      <div class="container">
+        <div class="profile-layout">
+          <div class="main-foto">
+            <img src="img/pp.jpg" alt="foto-profil" />
+          </div>
+          <div class="main-about">
+            <h1>Profil Saya</h1>
+            <p>
+              Saya adalah mahasiswa S1 Informatika semester 6 di Universitas
+              Ahmad Dahlan, dengan fokus pada pengembangan web, analisis sistem,
+              dan sedang mendalami Artificial Intelligence (AI).
+            </p>
+            <p>
+              Saya tertarik menggabungkan AI ke dalam solusi web interaktif,
+              seperti automasi, prediksi, dan interaksi cerdas, agar aplikasi
+              menjadi lebih adaptif dan bermanfaat bagi pengguna.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
+    <main class="headquarter">
+      <div class="container">
+        <div class="headquarter-judul">
+          <h1>Domisili</h1>
+        </div>
+        <div class="headquarter-kota">
+          <div class="kota-item">
+            <img src="img/jogja.jpg" alt="Yogyakarta" />
+            <div class="kota-sejarah">
+              <h3>Yogyakarta</h3>
+              <p>
+                Yogyakarta adalah daerah istimewa dengan nilai sejarah dan
+                budaya tinggi. Keraton Yogyakarta menjadi pusat kebudayaan Jawa,
+                dan pada masa perjuangan kemerdekaan Jogja pernah menjadi ibu
+                kota Indonesia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section id="portfolio" class="section">
+      <div class="container">
+        <div class="main-judul">
+          <h1>Sertifikat Pelatihan</h1>
+        </div>
+
+        <div class="portfolio-slider">
+          <div class="slide">
+            <img src="img/sertif1.jpg" class="img-list" />
+          </div>
+          <div class="slide">
+            <img src="img/sertif2.jpg" class="img-list" />
+          </div>
+          <div class="slide">
+            <img src="img/sertif3.jpg" class="img-list" />
+          </div>
+          <div class="slide">
+            <img src="img/sertif4.jpg" class="img-list" />
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <div class="slider-dots">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+      </div>
+    </section>
+    <br />
+    <br />
+
+    <section id="message" class="section">
+      <div class="container">
+        <div class="main-judul"><h1>Message Us</h1></div>
+        <div class="main-pesan">
+          <div class="main-form">
+            <form name="message-form" onsubmit="kirim(); return false">
+              <table>
+                <tr>
+                  <td><label for="nama">Nama</label></td>
+                  <td>
+                    <input type="text" name="nama" id="nama" required />
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="ttl">Tanggal Lahir</label></td>
+                  <td><input type="date" name="ttl" id="ttl" required /></td>
+                </tr>
+                <tr>
+                  <td><label for="gender">Jenis Kelamin</label></td>
+                  <td>
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="laki-laki"
+                      value="Laki-laki"
+                      required
+                    />
+                    <label for="laki-laki">Laki-laki</label>
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="perempuan"
+                      value="Perempuan"
+                      required
+                    />
+                    <label for="perempuan">Perempuan</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="pesan">Pesan</label></td>
+                  <td>
+                    <textarea
+                      name="pesan"
+                      id="pesan"
+                      rows="5"
+                      required
+                    ></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2"><input type="submit" value="Kirim" /></td>
+                </tr>
+              </table>
+            </form>
+          </div>
+          <div class="main-data">
+            <table>
+              <tr>
+                <td>Waktu</td>
+                <td>: <span id="waktu"></span></td>
+              </tr>
+              <tr>
+                <td>Nama</td>
+                <td>: <span id="nama2"></span></td>
+              </tr>
+              <tr>
+                <td>Tanggal Lahir</td>
+                <td>: <span id="ttl2"></span></td>
+              </tr>
+              <tr>
+                <td>Jenis Kelamin</td>
+                <td>: <span id="gender2"></span></td>
+              </tr>
+              <tr>
+                <td>Pesan</td>
+                <td>: <span id="pesan2"></span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
-      <p>Created By: [Nama Anda]</p>
+      <div class="container">
+        <div class="footer-copyright">
+          <p>
+            &copy; Created By Alfian Aziz Ardiansyah | RevoU Coding Camp
+            Software Engineering
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script src="js/script.js"></script>
