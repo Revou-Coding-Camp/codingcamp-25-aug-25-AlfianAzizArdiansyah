@@ -68,21 +68,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   showSlides(slideIndex);
 
-  // Tambahkan di dalam document.addEventListener("DOMContentLoaded", ... );
-
-  // 4. Logika untuk Menu Hamburger Mobile
   const navMenu = document.getElementById("nav-menu");
   const navToggle = document.getElementById("nav-toggle");
   const navLinks = document.querySelectorAll(".nav-link");
 
-  // Tampilkan menu saat ikon hamburger di-klik
   if (navToggle) {
     navToggle.addEventListener("click", () => {
       navMenu.classList.toggle("show-menu");
     });
   }
 
-  // Sembunyikan menu saat salah satu link di-klik
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       if (navMenu.classList.contains("show-menu")) {
