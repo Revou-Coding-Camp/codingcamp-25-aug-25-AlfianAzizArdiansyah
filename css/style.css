@@ -56,7 +56,7 @@ img {
 }
 
 /* ---------------------------
-   3. Navbar
+   3. Navbar (Versi Disempurnakan)
 --------------------------- */
 nav {
   height: var(--navbar-height);
@@ -70,9 +70,14 @@ nav {
 }
 nav .container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
+}
+.nav-brand a {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: var(--text-light);
 }
 .nav-menu ul {
   display: flex;
@@ -81,13 +86,21 @@ nav .container {
 .nav-menu a {
   padding: 8px 16px;
   border-radius: var(--border-radius);
-  color: var(--text-light);
-  display: block;
+  color: var(--text-muted);
+  font-weight: 600;
   transition: all var(--transition-speed) ease;
 }
 .nav-menu a:hover {
-  background-color: var(--primary-color);
-  transform: translateY(-2px);
+  color: var(--text-light);
+}
+.nav-menu a.active {
+  color: var(--primary-color);
+}
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--text-light);
+  cursor: pointer;
 }
 
 /* ---------------------------
@@ -373,48 +386,130 @@ footer .container {
   text-align: right;
 }
 
-/* ---------------------------
-   7. Responsive
---------------------------- */
+/* =========================================
+   7. RESPONSIVE (VERSI DISEMPURNAKAN)
+========================================= */
+
+/* Untuk layar tablet (di bawah 992px) */
 @media (max-width: 992px) {
+  .portofolio-grid {
+    grid-template-columns: repeat(2, 1fr); /* Portofolio menjadi 2 kolom */
+  }
+  .profile-layout {
+    gap: 40px; /* Kurangi jarak di tablet */
+    align-items: flex-start; /* Jaga agar teks tidak terlalu ke tengah */
+  }
 }
+
+/* Untuk layar mobile (di bawah 768px) */
 @media (max-width: 768px) {
-  .profile-layout,
-  .main-pesan {
-    flex-direction: column;
-    align-items: center;
+  /* --- Penyesuaian Global untuk Mobile --- */
+  .section,
+  .headquarter {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  h1 {
+    font-size: 2em; /* Sedikit perkecil semua H1 di mobile */
+  }
+
+  /* --- Header --- */
+  header .container,
+  main.headquarter .container {
+    margin: 0; /* Hapus margin-left khusus desktop */
+    padding: 0 25px; /* Beri jarak aman dari tepi layar */
+  }
+  header .header-judul {
+    text-align: center; /* Buat judul header di tengah agar lebih impactful */
+  }
+
+  /* --- Profile --- */
+  .profile-layout {
+    flex-direction: column; /* Susun vertikal */
+    align-items: center; /* Buat semua konten di tengah */
+    gap: 30px;
+  }
+  .main-foto img {
+    width: 180px; /* 👈 Perkecil lebar gambar */
+    height: 180px; /* 👈 Perkecil tinggi gambar */
+    margin: 0 auto 15px auto; /* Atur margin agar rapi di tengah */
   }
   .main-foto,
-  .main-about,
-  .main-form,
-  .main-data {
+  .main-about {
     flex-basis: 100%;
     width: 100%;
-    text-align: center;
+    text-align: center; /* Buat teks di bawah foto dan paragraf di tengah */
   }
   .main-about h1,
   .main-about p {
-    text-align: center;
+    text-align: center; /* Ubah dari justify ke center agar rapi di layar sempit */
   }
+  .main-about p {
+    margin-bottom: 1rem;
+  }
+
+  /* --- Domicile --- */
   .kota-item {
     flex-direction: column;
     text-align: center;
   }
+  .kota-sejarah p {
+    text-align: center; /* Ubah dari justify ke center */
+  }
+
+  /* --- Portofolio --- */
+  .portofolio-grid {
+    grid-template-columns: 1fr; /* Jadi 1 kolom */
+  }
+
+  /* --- Message Us --- */
+  .main-pesan {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .main-form,
+  .main-data {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  /* --- Footer --- */
   footer .container {
-    justify-content: center;
-    text-align: center;
+    justify-content: center; /* Pusatkan konten footer */
+  }
+  /* Tambahkan di dalam @media (max-width: 768px) */
+
+  /* Navbar Mobile */
+  .nav-toggle {
+    display: block; /* Tampilkan ikon hamburger */
+  }
+  .nav-menu {
+    position: fixed;
+    top: var(--navbar-height);
+    right: -100%; /* Sembunyikan menu di luar layar */
+    width: 60%;
+    height: 100vh;
+    background-color: var(--dark-bg);
+    padding: 2rem;
+    transition: right 0.4s ease-in-out;
+  }
+  .nav-menu.show-menu {
+    right: 0; /* Tampilkan menu dari kanan */
+  }
+  .nav-menu ul {
+    flex-direction: column; /* Susun menu secara vertikal */
+    align-items: center;
+    gap: 2.5rem;
   }
 }
+
+/* Untuk layar mobile sangat kecil (di bawah 480px) */
 @media (max-width: 480px) {
-  header .container,
-  main.headquarter .container {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
   .header-judul h1 {
-    font-size: 32px;
+    font-size: 32px; /* Perkecil lagi font header */
   }
   .header-judul p {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
