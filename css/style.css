@@ -1,6 +1,3 @@
-/* ---------------------------
-   1. Konfigurasi Variabel & Reset CSS
---------------------------- */
 :root {
   --primary-color: #f59e0b;
   --primary-color-dark: #d97706;
@@ -46,18 +43,12 @@ img {
   display: block;
 }
 
-/* ---------------------------
-   2. Layout Utama (Container)
---------------------------- */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* ---------------------------
-   3. Navbar
---------------------------- */
 nav {
   height: var(--navbar-height);
   width: 100%;
@@ -70,9 +61,14 @@ nav {
 }
 nav .container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
+}
+.nav-brand a {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: var(--text-light);
 }
 .nav-menu ul {
   display: flex;
@@ -81,18 +77,23 @@ nav .container {
 .nav-menu a {
   padding: 8px 16px;
   border-radius: var(--border-radius);
-  color: var(--text-light);
-  display: block;
+  color: var(--text-muted);
+  font-weight: 600;
   transition: all var(--transition-speed) ease;
 }
 .nav-menu a:hover {
-  background-color: var(--primary-color);
-  transform: translateY(-2px);
+  color: var(--text-light);
+}
+.nav-menu a.active {
+  color: var(--primary-color);
+}
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--text-light);
+  cursor: pointer;
 }
 
-/* ---------------------------
-   4. Header
---------------------------- */
 header {
   height: 100vh;
   display: flex;
@@ -121,9 +122,6 @@ header .container {
   color: var(--text-muted);
 }
 
-/* ---------------------------
-   5. Konten Utama (main & section)
---------------------------- */
 .headquarter {
   background-color: #a8a5a5;
   color: var(--text-light);
@@ -355,9 +353,6 @@ header .container {
   flex: 1;
 }
 
-/* ---------------------------
-   6. Footer
---------------------------- */
 footer {
   background-color: var(--dark-bg);
   color: var(--text-light);
@@ -373,21 +368,44 @@ footer .container {
   text-align: right;
 }
 
-/* ---------------------------
-   7. Responsive
---------------------------- */
 @media (max-width: 992px) {
+  .portofolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .profile-layout {
+    gap: 40px;
+    align-items: flex-start;
+  }
 }
 @media (max-width: 768px) {
-  .profile-layout,
-  .main-pesan {
+  .section,
+  .headquarter {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  header .container,
+  main.headquarter .container {
+    margin: 0;
+    padding: 0 25px;
+  }
+  header .header-judul {
+    text-align: center;
+  }
+  .profile-layout {
     flex-direction: column;
     align-items: center;
+    gap: 30px;
+  }
+  .main-foto img {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 15px auto;
   }
   .main-foto,
-  .main-about,
-  .main-form,
-  .main-data {
+  .main-about {
     flex-basis: 100%;
     width: 100%;
     text-align: center;
@@ -396,25 +414,59 @@ footer .container {
   .main-about p {
     text-align: center;
   }
+  .main-about p {
+    margin-bottom: 1rem;
+  }
   .kota-item {
     flex-direction: column;
     text-align: center;
   }
+  .kota-sejarah p {
+    text-align: center;
+  }
+  .portofolio-grid {
+    grid-template-columns: 1fr;
+  }
+  .main-pesan {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .main-form,
+  .main-data {
+    flex-basis: 100%;
+    width: 100%;
+  }
   footer .container {
     justify-content: center;
-    text-align: center;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .nav-menu {
+    position: fixed;
+    top: var(--navbar-height);
+    right: -100%;
+    width: 60%;
+    height: 100vh;
+    background-color: var(--dark-bg);
+    padding: 2rem;
+    transition: right 0.4s ease-in-out;
+  }
+  .nav-menu.show-menu {
+    right: 0;
+  }
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
   }
 }
 @media (max-width: 480px) {
-  header .container,
-  main.headquarter .container {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
   .header-judul h1 {
     font-size: 32px;
   }
   .header-judul p {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
