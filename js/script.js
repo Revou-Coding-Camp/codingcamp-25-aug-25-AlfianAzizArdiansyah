@@ -67,4 +67,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   showSlides(slideIndex);
+
+  const navMenu = document.getElementById("nav-menu");
+  const navToggle = document.getElementById("nav-toggle");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  if (navToggle) {
+    navToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show-menu");
+    });
+  }
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (navMenu.classList.contains("show-menu")) {
+        navMenu.classList.remove("show-menu");
+      }
+    });
+  });
 });
